@@ -6,6 +6,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
+def posts(request):
+	context = {}
+	return render(request,'blog/index.html', context)
+
+
 class PostList(APIView):
 	"""
 	List all Posts
@@ -50,3 +55,5 @@ class PostDetail(APIView):
 		post = self.get_object(pk)
 		post.delete()
 		return Response(status=status.HTTP_204_NO_CONTENT)
+
+
